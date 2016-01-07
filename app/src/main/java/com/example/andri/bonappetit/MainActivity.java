@@ -1,5 +1,6 @@
 package com.example.andri.bonappetit;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -24,11 +25,14 @@ public class MainActivity extends AppCompatActivity implements
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Intent intent = new Intent(MainActivity.this,FormActivity.class);
+                startActivityForResult(intent,0);
+                Snackbar.make(view, "Repas crée avec succès (en vrai c'est pas vrai)", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -69,6 +73,13 @@ public class MainActivity extends AppCompatActivity implements
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+        else if(id == R.id.menu_filter) {
+            return true;
+        }
+        else if(id == R.id.menu_sort) {
+
             return true;
         }
 
