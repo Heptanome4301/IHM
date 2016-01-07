@@ -1,0 +1,546 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.andri.bonappetit.RestaurantsListFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:useDefaultMargins="true"
+        android:gravity="fill"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:id="@+id/first_row">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@color/tile_bg_dark"
+                android:layout_marginRight="5dp"
+                android:id="@+id/cp_tile"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight=".25"
+                    android:layout_gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/cp_name"
+                    android:id="@+id/cp_tile_name" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".25">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:id="@+id/cp_pinpoint"
+                        android:src="@drawable/pinpoint"
+                        android:layout_alignParentLeft="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/cp_distance"
+                        android:id="@+id/cp_tile_distance"
+                        android:layout_alignTop="@id/cp_pinpoint"
+                        android:layout_alignBottom="@id/cp_pinpoint"
+                        android:layout_centerInParent="true"
+                        android:gravity="center" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".25">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="match_parent"
+                        android:id="@+id/cp_clock"
+                        android:src="@drawable/clock"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/cp_waitingTime"
+                        android:id="@+id/cp_tile_waitingTime"
+                        android:layout_alignTop="@id/cp_clock"
+                        android:layout_alignBottom="@id/cp_clock"
+                        android:layout_centerInParent="true"
+                        android:gravity="center" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".25">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="match_parent"
+                        android:id="@+id/cp_price"
+                        android:src="@drawable/price"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/cp_price"
+                        android:id="@+id/cp_tile_price"
+                        android:layout_alignTop="@id/cp_price"
+                        android:layout_alignBottom="@id/cp_price"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"/>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/imageView"
+                    android:src="@drawable/tartiflette"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:id="@+id/first_row_subdiv">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/tile_bg_dark"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical"
+                    android:id="@+id/gr_tile"
+                    android:clickable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight=".25"
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/gr_name"
+                        android:id="@+id/gr_tile_name" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".25">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left"
+                            android:id="@+id/gr_pinpoint"
+                            android:src="@drawable/pinpoint"
+                            android:layout_alignParentLeft="true" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/gr_distance"
+                            android:id="@+id/gr_tile_distance"
+                            android:layout_alignTop="@id/gr_pinpoint"
+                            android:layout_alignBottom="@id/gr_pinpoint"
+                            android:layout_centerInParent="true"
+                            android:gravity="center" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".25">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="match_parent"
+                            android:id="@+id/gr_clock"
+                            android:src="@drawable/clock"
+                            android:layout_alignParentLeft="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/gr_waitingTime"
+                            android:id="@+id/gr_tile_waitingTime"
+                            android:layout_alignTop="@id/gr_clock"
+                            android:layout_alignBottom="@id/gr_clock"
+                            android:layout_centerInParent="true"
+                            android:gravity="center" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".25">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="match_parent"
+                            android:id="@+id/gr_price"
+                            android:src="@drawable/price"
+                            android:layout_alignParentLeft="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/gr_price"
+                            android:id="@+id/gr_tile_price"
+                            android:layout_alignTop="@id/gr_price"
+                            android:layout_alignBottom="@id/gr_price"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/tile_bg_dark"
+                    android:orientation="vertical"
+                    android:id="@+id/ol_tile"
+                    android:clickable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight=".25"
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/ol_name"
+                        android:id="@+id/ol_tile_name" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".25">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left"
+                            android:id="@+id/ol_pinpoint"
+                            android:src="@drawable/pinpoint"
+                            android:layout_alignParentLeft="true" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/ol_distance"
+                            android:id="@+id/ol_tile_distance"
+                            android:layout_alignTop="@id/ol_pinpoint"
+                            android:layout_alignBottom="@id/ol_pinpoint"
+                            android:layout_centerInParent="true"
+                            android:gravity="center" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".25">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ol_clock"
+                            android:src="@drawable/clock"
+                            android:layout_alignParentLeft="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/ol_waitingTime"
+                            android:id="@+id/ol_tile_waitingTime"
+                            android:layout_alignTop="@id/ol_clock"
+                            android:layout_alignBottom="@id/ol_clock"
+                            android:layout_centerInParent="true"
+                            android:gravity="center" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".25">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ol_price"
+                            android:src="@drawable/price"
+                            android:layout_alignParentLeft="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/ol_price"
+                            android:id="@+id/ol_tile_price"
+                            android:layout_alignTop="@id/ol_price"
+                            android:layout_alignBottom="@id/ol_price"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:background="@color/tile_bg_dark"
+            android:id="@+id/cg_tile"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/cg_name"
+                    android:id="@+id/cg_tile_name"
+                    android:layout_gravity="center"/>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="match_parent"
+                        android:id="@+id/cg_clock"
+                        android:src="@drawable/clock"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/cg_waitingTime"
+                        android:id="@+id/cg_tile_waitingTime"
+                        android:layout_alignTop="@id/cg_clock"
+                        android:layout_alignBottom="@id/cg_clock"
+                        android:layout_centerInParent="true"
+                        android:gravity="center" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:id="@+id/cg_pinpoint"
+                        android:src="@drawable/pinpoint"
+                        android:layout_alignParentLeft="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/cg_distance"
+                        android:id="@+id/cg_tile_distance"
+                        android:layout_alignTop="@id/cg_pinpoint"
+                        android:layout_alignBottom="@id/cg_pinpoint"
+                        android:layout_centerInParent="true"
+                        android:gravity="center" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="match_parent"
+                        android:id="@+id/cg_price"
+                        android:src="@drawable/price"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/cg_price"
+                        android:id="@+id/cg_tile_price"
+                        android:layout_alignTop="@id/cg_price"
+                        android:layout_alignBottom="@id/cg_price"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:background="@color/tile_bg_dark"
+            android:id="@+id/ru_tile"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/ru_name"
+                    android:id="@+id/ru_tile_name"
+                    android:layout_gravity="center"/>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ru_clock"
+                        android:src="@drawable/clock"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/ru_waitingTime"
+                        android:id="@+id/ru_tile_waitingTime"
+                        android:layout_alignTop="@id/ru_clock"
+                        android:layout_alignBottom="@id/ru_clock"
+                        android:layout_centerInParent="true"
+                        android:gravity="center" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:id="@+id/ru_pinpoint"
+                        android:src="@drawable/pinpoint"
+                        android:layout_alignParentLeft="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/ru_distance"
+                        android:id="@+id/ru_tile_distance"
+                        android:layout_alignTop="@id/ru_pinpoint"
+                        android:layout_alignBottom="@id/ru_pinpoint"
+                        android:layout_centerInParent="true"
+                        android:gravity="center" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ru_price"
+                        android:src="@drawable/price"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/ru_price"
+                        android:id="@+id/ru_tile_price"
+                        android:layout_alignTop="@id/ru_price"
+                        android:layout_alignBottom="@id/ru_price"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

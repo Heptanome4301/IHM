@@ -14,5 +14,38 @@
     <string name="button_validate">Valider</string>
     <string name="meal_description"></string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="cp_name">Castor et Pollux</string>
+    <string name="cp_distance">à 200m</string>
+    <string name="cp_waitingTime">15min</string>
+    <string name="cp_price">Au forfait</string>
+
+    <string name="gr_name">Le grillon</string>
+    <string name="gr_distance">à 300m</string>
+    <string name="gr_waitingTime">25min</string>
+    <string name="gr_price">Au forfait</string>
+
+    <string name="ol_name">L\'olivier</string>
+    <string name="ol_distance">à 300m</string>
+    <string name="ol_waitingTime">20min</string>
+    <string name="ol_price">Au forfait</string>
+
+    <string name="pr_name">Le prévert</string>
+    <string name="pr_distance">à 200m</string>
+    <string name="pr_waitingTime">10min</string>
+    <string name="pr_price">Au forfait</string>
+
+    <string name="cg_name">Le Castor Gourmand</string>
+    <string name="cg_distance">à 300m</string>
+    <string name="cg_waitingTime">2min</string>
+    <string name="cg_price">6.50</string>
+
+    <string name="ru_name">Le RU</string>
+    <string name="ru_distance">à 800m</string>
+    <string name="ru_waitingTime">30min</string>
+    <string name="ru_price">QR code</string>
+
 
 </resources>
