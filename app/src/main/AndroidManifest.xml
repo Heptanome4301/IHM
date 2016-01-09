@@ -28,7 +28,7 @@
                 android:value="com.example.andri.bonappetit.MainActivity" />
         </activity>
         <activity
-            android:name=".MealDetails"
+            android:name=".MealDetailsActivity"
             android:label="@string/title_activity_meal_details"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

@@ -146,13 +146,16 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onListFragmentInteraction(RestaurantContent.RestaurantItem item) {
-        Intent intent = new Intent(MainActivity.this,MealDetails.class);
+        Intent intent = new Intent(MainActivity.this,MealDetailsActivity.class);
         intent.putExtra("title",item.title);
         intent.putExtra("date",item.date);
         intent.putExtra("rating",item.rating);
         intent.putExtra("id",item.id);
         intent.putExtra("location",item.location);
         intent.putExtra("snippet",item.snippet);
+        intent.putExtra("seatsAvi",item.seatsAvi);
+        intent.putExtra("totalSeats",item.totalSeats);
+        intent.putExtra("price",item.price);
         startActivity(intent);
     }
 }

@@ -40,7 +40,7 @@ public class RestaurantContent {
     private static RestaurantItem createDummyItem(int position) {
         return new RestaurantItem(String.valueOf(position),"Repas " + position,
                 "Découvez de nouvelles saveurs grâce à ce savoureux repas et tout et tout, wech ma gueule dlmkdqlskdlqskdmlqksdlkqsdmlkqsmldkqsmldkqsmldkmqlsd",
-                "Quelque part " + position,"3 janvier à 12h",position%5+(float)Math.random());
+                "Quelque part " + position,"3 janvier à 12h",position%5+(float)Math.random(),(int)Math.floor(Math.random()*5),5,(float)5.2989080);
     }
 
 
@@ -56,8 +56,11 @@ public class RestaurantContent {
         public final String date;
         public final String title;
         public final float rating;
+        public final float price;
+        public final int seatsAvi;
+        public final int totalSeats;
 
-        public RestaurantItem(String id, String title,String description, String location, String date, float rating) {
+    public RestaurantItem(String id, String title,String description, String location, String date, float rating,int seatsAvi, int totalSeats,float price) {
             this.id = id;
             this.title=title;
             this.description=description;
@@ -65,6 +68,9 @@ public class RestaurantContent {
             this.date=date;
             this.snippet=description.substring(0);
             this.rating=rating;
+            this.seatsAvi=seatsAvi;
+            this.totalSeats=totalSeats;
+            this.price=price;
         }
 
         @Override

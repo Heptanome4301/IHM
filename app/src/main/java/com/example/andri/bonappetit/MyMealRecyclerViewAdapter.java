@@ -45,6 +45,12 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
         DecimalFormat df= new DecimalFormat("#.#");
         String rating = df.format(mValues.get(position).rating)+"/5";
         holder.mRatingView.setText(rating);
+        String seats = "("+mValues.get(position).seatsAvi+"/"+mValues.get(position).totalSeats+")";
+        holder.mSeatsView.setText(seats);
+        df= new DecimalFormat("#.#");
+        String price = df.format(mValues.get(position).price)+"€";
+        holder.mPriceView.setText(price);
+
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +77,8 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
         public final TextView mDateView;
         public final TextView mLocationView;
         public final TextView mRatingView;
+        public final TextView mSeatsView;
+        public final TextView mPriceView;
         public RestaurantItem mItem;
 
         public ViewHolder(View view) {
@@ -82,6 +90,8 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
             mLocationView = (TextView) view.findViewById(R.id.location);
             mRatingView = (TextView) view.findViewById(R.id.rating);
             mSnippetView = (TextView) view.findViewById(R.id.snippet);
+            mSeatsView = (TextView) view.findViewById(R.id.seats);
+            mPriceView = (TextView) view.findViewById(R.id.price);
         }
 
         @Override
