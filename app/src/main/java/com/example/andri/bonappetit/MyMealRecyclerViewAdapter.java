@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.andri.bonappetit.RestaurantFragment.OnListFragmentInteractionListener;
+import com.example.andri.bonappetit.MealFragment.OnListFragmentInteractionListener;
 import com.example.andri.bonappetit.dummy.RestaurantContent.RestaurantItem;
 
 import java.text.DecimalFormat;
@@ -17,12 +17,12 @@ import java.util.List;
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyRestaurantRecyclerViewAdapter extends RecyclerView.Adapter<MyRestaurantRecyclerViewAdapter.ViewHolder> {
+public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecyclerViewAdapter.ViewHolder> {
 
     private final List<RestaurantItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyRestaurantRecyclerViewAdapter(List<RestaurantItem> items, OnListFragmentInteractionListener listener) {
+    public MyMealRecyclerViewAdapter(List<RestaurantItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -30,7 +30,7 @@ public class MyRestaurantRecyclerViewAdapter extends RecyclerView.Adapter<MyRest
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_restaurant, parent, false);
+                .inflate(R.layout.fragment_meal, parent, false);
         return new ViewHolder(view);
     }
 

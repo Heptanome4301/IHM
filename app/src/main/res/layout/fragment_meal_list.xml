@@ -10,8 +10,8 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context="com.example.andri.bonappetit.RestaurantFragment"
-    tools:listitem="@layout/fragment_restaurant" />
+    tools:context=".MealFragment"
+    tools:listitem="@layout/fragment_meal" />
 
 
 

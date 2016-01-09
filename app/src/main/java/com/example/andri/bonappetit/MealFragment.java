@@ -19,7 +19,7 @@ import com.example.andri.bonappetit.dummy.RestaurantContent.RestaurantItem;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class RestaurantFragment extends Fragment {
+public class MealFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -31,13 +31,13 @@ public class RestaurantFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public RestaurantFragment() {
+    public MealFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static RestaurantFragment newInstance(int columnCount) {
-        RestaurantFragment fragment = new RestaurantFragment();
+    public static MealFragment newInstance(int columnCount) {
+        MealFragment fragment = new MealFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -67,7 +67,7 @@ public class RestaurantFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_restaurant_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_meal_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -78,7 +78,7 @@ public class RestaurantFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyRestaurantRecyclerViewAdapter(RestaurantContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyMealRecyclerViewAdapter(RestaurantContent.ITEMS, mListener));
         }
         return view;
     }

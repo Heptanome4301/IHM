@@ -20,9 +20,9 @@ import com.example.andri.bonappetit.dummy.RestaurantContent;
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener,
         RestaurantsListFragment.OnFragmentInteractionListener,
-        RestaurantFragment.OnListFragmentInteractionListener {
+        MealFragment.OnListFragmentInteractionListener {
 
-    private RestaurantFragment restaurantFragment;
+    private MealFragment mealFragment;
     private RestaurantsListFragment dummyFragment;
     public FloatingActionButton fab;
 
@@ -118,10 +118,10 @@ public class MainActivity extends AppCompatActivity implements
         if (id == R.id.nav_map) {
 
         } else if (id == R.id.nav_user_meal) {
-            if (restaurantFragment == null)
-                restaurantFragment = new RestaurantFragment();
+            if (mealFragment == null)
+                mealFragment = new MealFragment();
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, restaurantFragment).commit();
+                    .replace(R.id.fragment_container, mealFragment).commit();
             fab.setVisibility(View.VISIBLE);
 
         } else if (id == R.id.nav_share) {
@@ -146,6 +146,13 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onListFragmentInteraction(RestaurantContent.RestaurantItem item) {
-
+        Intent intent = new Intent(MainActivity.this,MealDetails.class);
+        intent.putExtra("title",item.title);
+        intent.putExtra("date",item.date);
+        intent.putExtra("rating",item.rating);
+        intent.putExtra("id",item.id);
+        intent.putExtra("location",item.location);
+        intent.putExtra("snippet",item.snippet);
+        startActivity(intent);
     }
 }

@@ -116,7 +116,7 @@
                     android:maxLines="1"
                     android:textSize="18dp"
                     android:textColor="#000"
-                    android:drawableRight="@mipmap/ic_star_half_black_24dp"
+                    android:drawableRight="@mipmap/ic_grade_black_18dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
