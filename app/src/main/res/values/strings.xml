@@ -136,6 +136,10 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="location_permission_denied">Permission denied</string>
+    <string name="permission_required_toast">Permission required</string>
+    <string name="permission_rationale_location">mdrr g pas compris</string>
+    <string name="title_activity_maps_activity_mdr">Map</string>
 
 
 </resources>

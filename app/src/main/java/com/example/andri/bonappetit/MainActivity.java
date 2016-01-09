@@ -1,5 +1,6 @@
 package com.example.andri.bonappetit;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,14 +17,23 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.andri.bonappetit.dummy.RestaurantContent;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener,
         RestaurantsListFragment.OnFragmentInteractionListener,
-        MealFragment.OnListFragmentInteractionListener {
+        MealFragment.OnListFragmentInteractionListener,
+        OnMapReadyCallback{
 
     private MealFragment mealFragment;
     private RestaurantsListFragment dummyFragment;
+    private MapFragment mapFragment;
     public FloatingActionButton fab;
 
     @Override
@@ -44,13 +54,13 @@ public class MainActivity extends AppCompatActivity implements
 
             RestaurantsListFragment fragment = new RestaurantsListFragment();
             dummyFragment = fragment;
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, fragment).commit();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            transaction.add(R.id.fragment_container, dummyFragment);
+            transaction.commit();
 
 
         }
-
-
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -117,6 +128,17 @@ public class MainActivity extends AppCompatActivity implements
 
         if (id == R.id.nav_map) {
 
+            fab.setVisibility(View.GONE);
+
+            if (mapFragment == null)
+                mapFragment = MapFragment.newInstance();
+            FragmentTransaction fragmentTransaction =
+                    getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, mapFragment);
+            fragmentTransaction.commit();
+
+            mapFragment.getMapAsync(this);
+
         } else if (id == R.id.nav_user_meal) {
             if (mealFragment == null)
                 mealFragment = new MealFragment();
@@ -129,8 +151,13 @@ public class MainActivity extends AppCompatActivity implements
         } else if (id == R.id.nav_resto) {
             if (dummyFragment == null)
                 dummyFragment = new RestaurantsListFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, dummyFragment).commit();
+
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            transaction.replace(R.id.fragment_container, dummyFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
             fab.setVisibility(View.GONE);
         }
 
@@ -157,5 +184,31 @@ public class MainActivity extends AppCompatActivity implements
         intent.putExtra("totalSeats",item.totalSeats);
         intent.putExtra("price",item.price);
         startActivity(intent);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap mMap) {
+        final LatLng BEURK = new LatLng(45.781038, 4.873533);
+        final LatLng RESTO_U = new LatLng(45.780917, 4.876201);
+        final LatLng CHEZ_PATRICK = new LatLng(45.784489, 4.872739);
+
+        // add POIs
+        Marker marker1 = mMap.addMarker(new MarkerOptions()
+                .position(BEURK)
+                .title("Le beurk")
+                .snippet("Un restaurant bien sympa (xd)"));
+        marker1.showInfoWindow();
+
+        Marker marker2 = mMap.addMarker(new MarkerOptions()
+                .position(RESTO_U)
+                .title("Restaurant U")
+                .snippet("c'est pas mal"));
+
+        Marker marker3 = mMap.addMarker(new MarkerOptions()
+                .position(CHEZ_PATRICK)
+                .title("Couscous chez Patrick")
+                .snippet("c'est pas mal"));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(BEURK, 15));
     }
 }
