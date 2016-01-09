@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, FormActivity.class);
-                startActivityForResult(intent, 0);
+                startActivity(intent);
                 Snackbar.make(view, "Repas crée avec succès (en vrai c'est pas vrai)", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -131,19 +131,32 @@ public class MainActivity extends AppCompatActivity implements
             fab.setVisibility(View.GONE);
 
             if (mapFragment == null)
-                mapFragment = MapFragment.newInstance();
-            FragmentTransaction fragmentTransaction =
-                    getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, mapFragment);
-            fragmentTransaction.commit();
+                mapFragment = new MapFragment();
+
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            transaction.replace(R.id.fragment_container, mapFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+            if(mealFragment!=null) {
+                getSupportFragmentManager().beginTransaction().remove(mealFragment).commit();
+            }
 
             mapFragment.getMapAsync(this);
 
         } else if (id == R.id.nav_user_meal) {
             if (mealFragment == null)
                 mealFragment = new MealFragment();
+
+           /* FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, mealFragment);
+            transaction.commit();*/
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, mealFragment).commit();
+            if(mapFragment!=null) {
+                getFragmentManager().beginTransaction().remove(mapFragment).commit();
+            }
+
             fab.setVisibility(View.VISIBLE);
 
         } else if (id == R.id.nav_share) {
@@ -157,6 +170,9 @@ public class MainActivity extends AppCompatActivity implements
             transaction.replace(R.id.fragment_container, dummyFragment);
             transaction.addToBackStack(null);
             transaction.commit();
+            if(mealFragment!=null) {
+                getSupportFragmentManager().beginTransaction().remove(mealFragment).commit();
+            }
 
             fab.setVisibility(View.GONE);
         }
@@ -173,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onListFragmentInteraction(RestaurantContent.RestaurantItem item) {
-        Intent intent = new Intent(MainActivity.this,MealDetailsActivity.class);
+        Intent intent = new Intent(this,MealDetailsActivity.class);
         intent.putExtra("title",item.title);
         intent.putExtra("date",item.date);
         intent.putExtra("rating",item.rating);
