@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements
         RestaurantsListFragment.OnFragmentInteractionListener,
         RestaurantFragment.OnListFragmentInteractionListener {
 
+    private RestaurantFragment restaurantFragment;
+    private RestaurantsListFragment dummyFragment;
+    public FloatingActionButton fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,19 +42,20 @@ public class MainActivity extends AppCompatActivity implements
                 return;
             }
 
-            RestaurantFragment fragment = new RestaurantFragment();
+            RestaurantsListFragment fragment = new RestaurantsListFragment();
+            dummyFragment = fragment;
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, fragment).commit();
+
 
         }
 
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,FormActivity.class);
+                Intent intent = new Intent(MainActivity.this, FormActivity.class);
                 startActivityForResult(intent, 0);
                 Snackbar.make(view, "Repas crée avec succès (en vrai c'est pas vrai)", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
@@ -94,14 +99,9 @@ public class MainActivity extends AppCompatActivity implements
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }
-        else if(id == R.id.menu_filter) {
-          /*  TestFragment fragment = new TestFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, fragment).commit();*/
+        } else if (id == R.id.menu_filter) {
             return true;
-        }
-        else if(id == R.id.menu_sort) {
+        } else if (id == R.id.menu_sort) {
 
             return true;
         }
@@ -118,11 +118,20 @@ public class MainActivity extends AppCompatActivity implements
         if (id == R.id.nav_map) {
 
         } else if (id == R.id.nav_user_meal) {
+            if (restaurantFragment == null)
+                restaurantFragment = new RestaurantFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, restaurantFragment).commit();
+            fab.setVisibility(View.VISIBLE);
 
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_resto) {
-
+            if (dummyFragment == null)
+                dummyFragment = new RestaurantsListFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, dummyFragment).commit();
+            fab.setVisibility(View.GONE);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

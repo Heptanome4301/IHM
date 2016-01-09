@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.andri.bonappetit.RestaurantFragment.OnListFragmentInteractionListener;
 import com.example.andri.bonappetit.dummy.RestaurantContent.RestaurantItem;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -41,7 +42,8 @@ public class MyRestaurantRecyclerViewAdapter extends RecyclerView.Adapter<MyRest
         holder.mSnippetView.setText(mValues.get(position).snippet);
         holder.mDateView.setText(mValues.get(position).date);
         holder.mLocationView.setText(mValues.get(position).location);
-        String rating = mValues.get(position).rating+"/5";
+        DecimalFormat df= new DecimalFormat("#.#");
+        String rating = df.format(mValues.get(position).rating)+"/5";
         holder.mRatingView.setText(rating);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {

@@ -5,6 +5,7 @@
 
     <item
         android:id="@+id/menu_form_validate"
+        android:icon="@mipmap/ic_done_white_24dp"
         android:title="@string/button_validate"
         app:showAsAction="ifRoom"/>
 </menu>
