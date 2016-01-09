@@ -1,28 +1,26 @@
 package com.example.andri.bonappetit;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.andri.bonappetit.dummy.RestaurantContent;
+
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener,
-        RestaurantsListFragment.OnFragmentInteractionListener {
+        RestaurantsListFragment.OnFragmentInteractionListener,
+        RestaurantFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements
                 return;
             }
 
-            RestaurantsListFragment fragment = RestaurantsListFragment.newInstance("lol","xd");
+            RestaurantFragment fragment = new RestaurantFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, fragment).commit();
 
@@ -134,6 +132,11 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(RestaurantContent.RestaurantItem item) {
 
     }
 }
