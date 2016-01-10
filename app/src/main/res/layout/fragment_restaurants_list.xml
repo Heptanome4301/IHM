@@ -38,6 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight=".25"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/cp_name"
@@ -62,9 +63,7 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/cp_distance"
                         android:id="@+id/cp_tile_distance"
-                        android:layout_alignTop="@id/cp_pinpoint"
-                        android:layout_alignBottom="@id/cp_pinpoint"
-                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@id/cp_pinpoint"
                         android:gravity="center" />
                 </RelativeLayout>
 
@@ -86,9 +85,7 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/cp_waitingTime"
                         android:id="@+id/cp_tile_waitingTime"
-                        android:layout_alignTop="@id/cp_clock"
-                        android:layout_alignBottom="@id/cp_clock"
-                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@id/cp_clock"
                         android:gravity="center" />
 
                 </RelativeLayout>
@@ -111,9 +108,7 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/cp_price"
                         android:id="@+id/cp_tile_price"
-                        android:layout_alignTop="@id/cp_price"
-                        android:layout_alignBottom="@id/cp_price"
-                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@id/cp_price"
                         android:gravity="center"/>
 
                 </RelativeLayout>
@@ -122,6 +117,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:scaleType="centerCrop"
                     android:id="@+id/imageView"
                     android:src="@drawable/tartiflette"/>
 
@@ -149,6 +145,7 @@
                         android:layout_height="0dp"
                         android:layout_weight=".25"
                         android:layout_gravity="center"
+                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/gr_name"
                         android:id="@+id/gr_tile_name" />
@@ -172,9 +169,7 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="@string/gr_distance"
                             android:id="@+id/gr_tile_distance"
-                            android:layout_alignTop="@id/gr_pinpoint"
-                            android:layout_alignBottom="@id/gr_pinpoint"
-                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@id/gr_pinpoint"
                             android:gravity="center" />
                     </RelativeLayout>
 
@@ -196,9 +191,7 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="@string/gr_waitingTime"
                             android:id="@+id/gr_tile_waitingTime"
-                            android:layout_alignTop="@id/gr_clock"
-                            android:layout_alignBottom="@id/gr_clock"
-                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@id/gr_clock"
                             android:gravity="center" />
                     </RelativeLayout>
 
@@ -220,9 +213,7 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="@string/gr_price"
                             android:id="@+id/gr_tile_price"
-                            android:layout_alignTop="@id/gr_price"
-                            android:layout_alignBottom="@id/gr_price"
-                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@id/gr_price"
                             android:gravity="center"/>
                     </RelativeLayout>
 
@@ -241,6 +232,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight=".25"
+                        android:textStyle="bold"
                         android:layout_gravity="center"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/ol_name"
@@ -265,9 +257,7 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="@string/ol_distance"
                             android:id="@+id/ol_tile_distance"
-                            android:layout_alignTop="@id/ol_pinpoint"
-                            android:layout_alignBottom="@id/ol_pinpoint"
-                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@id/ol_pinpoint"
                             android:gravity="center" />
                     </RelativeLayout>
 
@@ -289,9 +279,7 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="@string/ol_waitingTime"
                             android:id="@+id/ol_tile_waitingTime"
-                            android:layout_alignTop="@id/ol_clock"
-                            android:layout_alignBottom="@id/ol_clock"
-                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@id/ol_clock"
                             android:gravity="center" />
                     </RelativeLayout>
 
@@ -313,9 +301,7 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="@string/ol_price"
                             android:id="@+id/ol_tile_price"
-                            android:layout_alignTop="@id/ol_price"
-                            android:layout_alignBottom="@id/ol_price"
-                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@id/ol_price"
                             android:gravity="center"/>
                     </RelativeLayout>
 
@@ -345,6 +331,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:paddingLeft="10dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/cg_name"
                     android:id="@+id/cg_tile_name"
@@ -456,6 +444,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:paddingLeft="10dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/ru_name"
                     android:id="@+id/ru_tile_name"

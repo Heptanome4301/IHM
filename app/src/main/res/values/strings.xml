@@ -40,12 +40,12 @@
     <string name="cg_name">Le Castor Gourmand</string>
     <string name="cg_distance">à 300m</string>
     <string name="cg_waitingTime">2min</string>
-    <string name="cg_price">6.50</string>
+    <string name="cg_price">6,50€</string>
 
     <string name="ru_name">Le RU</string>
     <string name="ru_distance">à 800m</string>
     <string name="ru_waitingTime">30min</string>
-    <string name="ru_price">QR code</string>
+    <string name="ru_price">3,30€</string>
     <string name="title_activity_meal_details">MealDetails</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"

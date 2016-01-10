@@ -29,6 +29,10 @@ public class RestaurantContent {
 
     private static final int COUNT = 30;
 
+    private static final String BLABLA = "Faites vibrer vos sens grâce à ce savoureux repas fait avec amour dans une chambre étudiante au charme atypique dans une ambiance intime." +
+            " Au menu de ce repas : du manger. Malgré son titre peu original, ne vous y trompez pas, ce repas il est bien, si, si. Et maintenant, des trucs en latin (y'a un site qui fait ça, c'est cool)." +
+            "\nIudicare omnibus posse et iudicarent sermo rebus de generis quod diligentiores experiendi constantes iudicium homines Ita (saepe autem rebus quaedam et iudicarent Sunt amicitias quaedam quod Et esse nec oves cuius iudicarent neglegentis (saepe quot firmi quisque (saepe diligentiores mdr le pire truc iudicarent omnibus potestatem in est dicere diligentiores cuius dicere autem adhibere sane qui et igitur sermo Et diligentiores quot autem iudicare essent posse ad capras est amicitia (saepe ipsa est non iudicare quaedam esse et et et in est stabiles firmi redeo experiendum quasi quibus haberet expertum nec quot Et adhibere amicis esse Sunt eligendis et praecurrit firmi enim rebus qui.";
+
     static {
         // Add some sample items.
         for (int i = 1; i <= COUNT; i++) {
@@ -42,9 +46,9 @@ public class RestaurantContent {
     }
 
     private static RestaurantItem createDummyItem(int position) {
-        return new RestaurantItem(String.valueOf(position), "Repas " + position,
-                "Découvez de nouvelles saveurs grâce à ce savoureux repas et tout et tout, wech ma gueule dlmkdqlskdlqskdmlqksdlkqsdmlkqsmldkqsmldkqsmldkmqlsd",
-                "Quelque part " + position, "3 janvier à 12h", (float) Math.random() * 5, (int) Math.floor(Math.random() * 5), 5, (float) Math.random() * 9 + 1);
+        return new RestaurantItem(String.valueOf(position), "Repas " + position, BLABLA
+                ,
+                "Localisation " + position, ((int)Math.floor(Math.random() * 30)+" février à 12h"), (float) Math.random() * 5, (int) Math.floor(Math.random() * 5), 5, (float) Math.random() * 9 + 1);
     }
 
     public static void sortByRating() {
