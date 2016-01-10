@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.andri.bonappetit.dialog.SortMealFragmentDialog;
 import com.example.andri.bonappetit.dummy.RestaurantContent;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener,
         RestaurantsListFragment.OnFragmentInteractionListener,
         MealFragment.OnListFragmentInteractionListener,
-        OnMapReadyCallback{
+        OnMapReadyCallback,
+        SortMealFragmentDialog.NoticeDialogListener{
 
     private MealFragment mealFragment;
     private RestaurantsListFragment dummyFragment;
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements
             transaction.commit();
 
 
+
+
         }
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -67,8 +71,6 @@ public class MainActivity extends AppCompatActivity implements
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, FormActivity.class);
                 startActivity(intent);
-                Snackbar.make(view, "Repas crée avec succès (en vrai c'est pas vrai)", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
 
@@ -97,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.setGroupVisible(R.id.group_menu_1,false);
         return true;
     }
 
@@ -110,11 +113,11 @@ public class MainActivity extends AppCompatActivity implements
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        } else if (id == R.id.menu_filter) {
+        } else if (id == R.id.menu_search) {
             return true;
         } else if (id == R.id.menu_sort) {
-
-            return true;
+            // return false so the event is not consumed and can be passed to the fragment
+            return false;
         }
 
         return super.onOptionsItemSelected(item);
@@ -148,11 +151,8 @@ public class MainActivity extends AppCompatActivity implements
             if (mealFragment == null)
                 mealFragment = new MealFragment();
 
-           /* FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, mealFragment);
-            transaction.commit();*/
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, mealFragment).commit();
+                    .replace(R.id.fragment_container, mealFragment,"mealFrag").commit();
             if(mapFragment!=null) {
                 getFragmentManager().beginTransaction().remove(mapFragment).commit();
             }
@@ -196,9 +196,10 @@ public class MainActivity extends AppCompatActivity implements
         intent.putExtra("id",item.id);
         intent.putExtra("location",item.location);
         intent.putExtra("snippet",item.snippet);
-        intent.putExtra("seatsAvi",item.seatsAvi);
+        intent.putExtra("seatsTaken",item.seatsTaken);
         intent.putExtra("totalSeats",item.totalSeats);
         intent.putExtra("price",item.price);
+        intent.putExtra("idImg",item.idImg);
         startActivity(intent);
     }
 
@@ -226,5 +227,17 @@ public class MainActivity extends AppCompatActivity implements
                 .snippet("c'est pas mal"));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(BEURK, 15));
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog, int idSelected) {
+     /*   String tag = dialog.getTag();
+        if(tag.equals("sort_meals_tag")) {
+            Fragment frag =getSupportFragmentManager().findFragmentByTag("mealFrag");
+            if(frag instanceof MealFragment) {
+                (MealFragment)frag.sort(idSelected);
+            }*/
+        MealFragment fragment = (MealFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        fragment.sort(idSelected);
     }
 }

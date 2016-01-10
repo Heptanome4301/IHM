@@ -1,4 +1,4 @@
-package com.example.andri.bonappetit;
+package com.example.andri.bonappetit.dialog;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -8,6 +8,8 @@ import android.view.View;
 
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.example.andri.bonappetit.R;
 
 import java.util.Calendar;
 

@@ -140,6 +140,16 @@
     <string name="permission_required_toast">Permission required</string>
     <string name="permission_rationale_location">mdrr g pas compris</string>
     <string name="title_activity_maps_activity_mdr">Map</string>
+    <string name="sort_dialog_title">Trier suivant</string>
+    <string name="menu_search">Rechercher</string>
+
+    <string-array name="sort_array">
+        <item><string name="price_item">Prix</string></item>
+        <item><string name="date_item">Date</string></item>
+        <item><string name="name_item">Nom</string></item>
+        <item><string name="rating_item">Note</string></item>
+        <item><string name="distance_item">Distance</string></item>
+    </string-array>
 
 
 </resources>

@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.andri.bonappetit.MealFragment.OnListFragmentInteractionListener;
@@ -46,11 +47,14 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
         DecimalFormat df= new DecimalFormat("#.#");
         String rating = df.format(mValues.get(position).rating)+"/5";
         holder.mRatingView.setText(rating);
-        String seats = "("+mValues.get(position).seatsAvi+"/"+mValues.get(position).totalSeats+")";
+        String seats = "("+mValues.get(position).seatsTaken+"/"+mValues.get(position).totalSeats+")";
         holder.mSeatsView.setText(seats);
         df= new DecimalFormat("#.#");
         String price = df.format(mValues.get(position).price)+"€";
         holder.mPriceView.setText(price);
+
+
+        holder.mImageView.setImageResource(mValues.get(position).idImg);
 
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -80,12 +84,12 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
         public final TextView mRatingView;
         public final TextView mSeatsView;
         public final TextView mPriceView;
+        public final ImageView mImageView;
         public RestaurantItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-        //    mIdView = (TextView) view.findViewById(R.id.id);
             mTitleView = (TextView) view.findViewById(R.id.title);
             mDateView = (TextView) view.findViewById(R.id.date);
             mLocationView = (TextView) view.findViewById(R.id.location);
@@ -93,6 +97,7 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
             mSnippetView = (TextView) view.findViewById(R.id.snippet);
             mSeatsView = (TextView) view.findViewById(R.id.seats);
             mPriceView = (TextView) view.findViewById(R.id.price);
+            mImageView = (ImageView) view.findViewById(R.id.thumbnail);
         }
 
         @Override

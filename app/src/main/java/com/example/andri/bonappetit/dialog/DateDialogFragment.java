@@ -1,15 +1,13 @@
-package com.example.andri.bonappetit;
+package com.example.andri.bonappetit.dialog;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.andri.bonappetit.R;
 
 import java.util.Calendar;
 

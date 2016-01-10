@@ -8,9 +8,13 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.andri.bonappetit.dialog.SortMealFragmentDialog;
 import com.example.andri.bonappetit.dummy.RestaurantContent;
 import com.example.andri.bonappetit.dummy.RestaurantContent.RestaurantItem;
 
@@ -20,13 +24,14 @@ import com.example.andri.bonappetit.dummy.RestaurantContent.RestaurantItem;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class MealFragment extends Fragment {
+public class MealFragment extends Fragment   {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    private RecyclerView recyclerView;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -52,6 +57,9 @@ public class MealFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+
+        setHasOptionsMenu(true);
+
     }
 
     @Override
@@ -62,13 +70,14 @@ public class MealFragment extends Fragment {
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             recyclerView.setAdapter(new MyMealRecyclerViewAdapter(RestaurantContent.ITEMS, mListener));
+
         }
         return view;
     }
@@ -83,12 +92,66 @@ public class MealFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
         }
+
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu,MenuInflater inflater) {
+        // Do something that differs the Activity's menu here
+        menu.setGroupVisible(R.id.group_menu_1,true);
+        super.onCreateOptionsMenu(menu, inflater);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_sort :
+                SortMealFragmentDialog dialog = new SortMealFragmentDialog();
+                dialog.show(getFragmentManager(), "sort_meals_tag");
+
+
+                return true;
+        }
+
+        return false;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void sort(int idSelected) {
+        String[] array = getResources().getStringArray(R.array.sort_array);
+   /*     String selected="";
+        for(int i=0;i<array.length;i++) {
+            if(idSelected==i) {
+                Toast.makeText(getActivity(), "selected " + array[i],
+                        Toast.LENGTH_SHORT).show();
+                selected=array[i];
+            }
+        }*/
+        switch (idSelected) {
+            case 0 : //price
+                RestaurantContent.sortByPrice();
+                break;
+            case 1 : //date
+                // TODO
+                break;
+            case 2 : //name
+                RestaurantContent.sortByTitle();
+                break;
+            case 3 : //rating
+                RestaurantContent.sortByRating();
+                break;
+            case 4 : //distance
+                // TODO
+                break;
+        }
+
+        recyclerView.swapAdapter(new MyMealRecyclerViewAdapter(RestaurantContent.ITEMS,mListener), false);
     }
 
     /**

@@ -43,7 +43,7 @@ public class MealDetailsActivity extends AppCompatActivity {
         toolbarLayout.setTitle(intent.getCharSequenceExtra("title"));
 
         TextView seats = (TextView)findViewById(R.id.seats);
-        seats.setText(intent.getIntExtra("seatsAvi", 0)+" places sur "+intent.getIntExtra("totalSeats", 1));
+        seats.setText(intent.getIntExtra("totalSeats", 1)-intent.getIntExtra("seatsTaken", 0)+" places disponibles");
         TextView date = (TextView)findViewById(R.id.date);
         date.setText(intent.getCharSequenceExtra("date"));
         TextView location = (TextView)findViewById(R.id.location);
@@ -56,15 +56,20 @@ public class MealDetailsActivity extends AppCompatActivity {
         price.setText(df.format(intent.getFloatExtra("price",1))+"€");
 
 
-
-
         ImageView image = (ImageView)findViewById(R.id.backdrop);
+        image.setImageResource(intent.getIntExtra("idImg",-1));
         Bitmap myBitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
-        if (myBitmap != null && !myBitmap.isRecycled()) {
+    /*    if (myBitmap != null && !myBitmap.isRecycled()) {
             Palette palette = Palette.generate(myBitmap);
-            toolbarLayout.setContentScrimColor(palette.getMutedColor(R.color.colorPrimary));
-            toolbarLayout.setStatusBarScrimColor(palette.getDarkVibrantColor(R.color.colorPrimaryDark));
-        }
+
+        }*/
+
+        Palette.from(myBitmap).generate(new Palette.PaletteAsyncListener() {
+            public void onGenerated(Palette p) {
+                toolbarLayout.setContentScrimColor(p.getVibrantColor(R.color.colorPrimary));
+                toolbarLayout.setStatusBarScrimColor(p.getDarkVibrantColor(R.color.colorPrimaryDark));
+            }
+        });
 
 
 
