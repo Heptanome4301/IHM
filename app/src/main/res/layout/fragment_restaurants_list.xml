@@ -1,15 +1,16 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
     tools:context="com.example.andri.bonappetit.RestaurantsListFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TODO ;'("/>
 
-    <!--LinearLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:useDefaultMargins="true"
@@ -52,7 +53,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="left"
                         android:id="@+id/cp_pinpoint"
-                        android:src="@drawable/pinpoint"
+                        android:src="@mipmap/ic_place_black_24dp"
                         android:layout_alignParentLeft="true" />
 
                     <TextView
@@ -76,7 +77,7 @@
                         android:layout_width="@dimen/icon_size"
                         android:layout_height="match_parent"
                         android:id="@+id/cp_clock"
-                        android:src="@drawable/clock"
+                        android:src="@mipmap/ic_schedule_black_24dp"
                         android:layout_alignParentLeft="true"/>
 
                     <TextView
@@ -101,7 +102,7 @@
                         android:layout_width="@dimen/icon_size"
                         android:layout_height="match_parent"
                         android:id="@+id/cp_price"
-                        android:src="@drawable/price"
+                        android:src="@mipmap/ic_attach_money_black_24dp"
                         android:layout_alignParentLeft="true"/>
 
                     <TextView
@@ -162,7 +163,7 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="left"
                             android:id="@+id/gr_pinpoint"
-                            android:src="@drawable/pinpoint"
+                            android:src="@mipmap/ic_place_black_24dp"
                             android:layout_alignParentLeft="true" />
 
                         <TextView
@@ -186,7 +187,7 @@
                             android:layout_width="@dimen/icon_size"
                             android:layout_height="match_parent"
                             android:id="@+id/gr_clock"
-                            android:src="@drawable/clock"
+                            android:src="@mipmap/ic_schedule_black_24dp"
                             android:layout_alignParentLeft="true"/>
 
                         <TextView
@@ -210,7 +211,7 @@
                             android:layout_width="@dimen/icon_size"
                             android:layout_height="match_parent"
                             android:id="@+id/gr_price"
-                            android:src="@drawable/price"
+                            android:src="@mipmap/ic_attach_money_black_24dp"
                             android:layout_alignParentLeft="true"/>
 
                         <TextView
@@ -255,7 +256,7 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="left"
                             android:id="@+id/ol_pinpoint"
-                            android:src="@drawable/pinpoint"
+                            android:src="@mipmap/ic_place_black_24dp"
                             android:layout_alignParentLeft="true" />
 
                         <TextView
@@ -279,7 +280,7 @@
                             android:layout_width="@dimen/icon_size"
                             android:layout_height="match_parent"
                             android:id="@+id/ol_clock"
-                            android:src="@drawable/clock"
+                            android:src="@mipmap/ic_schedule_black_24dp"
                             android:layout_alignParentLeft="true"/>
 
                         <TextView
@@ -303,7 +304,7 @@
                             android:layout_width="@dimen/icon_size"
                             android:layout_height="match_parent"
                             android:id="@+id/ol_price"
-                            android:src="@drawable/price"
+                            android:src="@mipmap/ic_attach_money_black_24dp"
                             android:layout_alignParentLeft="true"/>
 
                         <TextView
@@ -359,7 +360,7 @@
                         android:layout_width="@dimen/icon_size"
                         android:layout_height="match_parent"
                         android:id="@+id/cg_clock"
-                        android:src="@drawable/clock"
+                        android:src="@mipmap/ic_schedule_black_24dp"
                         android:layout_alignParentLeft="true"/>
 
                     <TextView
@@ -392,7 +393,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="left"
                         android:id="@+id/cg_pinpoint"
-                        android:src="@drawable/pinpoint"
+                        android:src="@mipmap/ic_place_black_24dp"
                         android:layout_alignParentLeft="true" />
 
                     <TextView
@@ -416,7 +417,7 @@
                         android:layout_width="@dimen/icon_size"
                         android:layout_height="match_parent"
                         android:id="@+id/cg_price"
-                        android:src="@drawable/price"
+                        android:src="@mipmap/ic_attach_money_black_24dp"
                         android:layout_alignParentLeft="true"/>
 
                     <TextView
@@ -470,7 +471,7 @@
                         android:layout_width="@dimen/icon_size"
                         android:layout_height="match_parent"
                         android:id="@+id/ru_clock"
-                        android:src="@drawable/clock"
+                        android:src="@mipmap/ic_schedule_black_24dp"
                         android:layout_alignParentLeft="true"/>
 
                     <TextView
@@ -503,7 +504,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="left"
                         android:id="@+id/ru_pinpoint"
-                        android:src="@drawable/pinpoint"
+                        android:src="@mipmap/ic_place_black_24dp"
                         android:layout_alignParentLeft="true" />
 
                     <TextView
@@ -527,7 +528,7 @@
                         android:layout_width="@dimen/icon_size"
                         android:layout_height="match_parent"
                         android:id="@+id/ru_price"
-                        android:src="@drawable/price"
+                        android:src="@mipmap/ic_attach_money_black_24dp"
                         android:layout_alignParentLeft="true"/>
 
                     <TextView
@@ -546,6 +547,6 @@
 
         </LinearLayout>
 
-    </LinearLayout-->
+    </LinearLayout>
 
-</FrameLayout>
+</RelativeLayout>
