@@ -45,14 +45,14 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="Description du repas"
                 android:id="@+id/meal_description_label" />
+
             <EditText android:id="@+id/meal_description"
                 android:layout_below="@+id/meal_description_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
-                android:ems="10"
                 android:layout_marginBottom="10dp"
-                android:hint="@string/meal_description" />
+                android:hint="@string/meal_description_hint" />
 
             <TextView
                 android:layout_below="@+id/meal_description"
@@ -62,11 +62,12 @@
                 android:text="Lieu"
                 android:id="@+id/meal_location_label" />
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:maxLines="1"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
-                android:ems="10"
                 android:id="@+id/meal_location"
+                android:hint="@string/location_hint"
                 android:layout_below="@+id/meal_location_label"
                 android:layout_marginBottom="10dp"
                 android:layout_alignParentLeft="true"
@@ -95,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Date"
+                android:text="Date et heure"
                 android:id="@+id/meal_date_label" />
 
             <TextView
@@ -141,15 +142,6 @@
         </RelativeLayout>
 
     </ScrollView>
-
-
-
-    <!--Button
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_validate" /-->
 
 
 </RelativeLayout>

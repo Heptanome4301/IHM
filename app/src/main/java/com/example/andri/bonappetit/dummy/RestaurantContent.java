@@ -27,7 +27,7 @@ public class RestaurantContent {
      */
     public static final Map<String, RestaurantItem> ITEM_MAP = new HashMap<String, RestaurantItem>();
 
-    private static final int COUNT = 25;
+    private static final int COUNT = 30;
 
     static {
         // Add some sample items.
@@ -110,12 +110,18 @@ public class RestaurantContent {
             this.seatsTaken = seatsTaken;
             this.totalSeats = totalSeats;
             this.price = price;
-            switch ((int) Math.floor(Math.random()*2)) {
+            switch ((int) Math.floor(Math.random()*4)) {
                 case 0:
                     idImg = R.drawable.tartiflette;
                     break;
                 case 1:
                     idImg = R.drawable.repas2;
+                    break;
+                case 2:
+                    idImg = R.drawable.repas3;
+                    break;
+                case 3:
+                    idImg = R.drawable.repas4;
                     break;
             }
         }

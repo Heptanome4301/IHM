@@ -22,6 +22,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -31,7 +32,8 @@ public class MainActivity extends AppCompatActivity implements
         RestaurantsListFragment.OnFragmentInteractionListener,
         MealFragment.OnListFragmentInteractionListener,
         OnMapReadyCallback,
-        SortMealFragmentDialog.NoticeDialogListener{
+        SortMealFragmentDialog.NoticeDialogListener,
+        GoogleMap.OnInfoWindowClickListener {
 
     private MealFragment mealFragment;
     private RestaurantsListFragment dummyFragment;
@@ -187,8 +189,7 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
-    @Override
-    public void onListFragmentInteraction(RestaurantContent.RestaurantItem item) {
+    private void startMealsDetailsActivity(RestaurantContent.RestaurantItem item) {
         Intent intent = new Intent(this,MealDetailsActivity.class);
         intent.putExtra("title",item.title);
         intent.putExtra("date",item.date);
@@ -204,40 +205,50 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
+    public void onListFragmentInteraction(RestaurantContent.RestaurantItem item) {
+        startMealsDetailsActivity(item);
+    }
+
+    @Override
     public void onMapReady(GoogleMap mMap) {
         final LatLng BEURK = new LatLng(45.781038, 4.873533);
         final LatLng RESTO_U = new LatLng(45.780917, 4.876201);
         final LatLng CHEZ_PATRICK = new LatLng(45.784489, 4.872739);
 
+        setTitle(R.string.map_title);
+
+        mMap.setOnInfoWindowClickListener(this);
         // add POIs
         Marker marker1 = mMap.addMarker(new MarkerOptions()
                 .position(BEURK)
                 .title("Le beurk")
-                .snippet("Un restaurant bien sympa (xd)"));
+                .snippet("Restaurant de l'INSA"));
         marker1.showInfoWindow();
 
         Marker marker2 = mMap.addMarker(new MarkerOptions()
                 .position(RESTO_U)
                 .title("Restaurant U")
-                .snippet("c'est pas mal"));
+                .snippet("Restaurant étudiant"));
 
         Marker marker3 = mMap.addMarker(new MarkerOptions()
                 .position(CHEZ_PATRICK)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .title("Couscous chez Patrick")
-                .snippet("c'est pas mal"));
+                .snippet("Si si"));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(BEURK, 15));
     }
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog, int idSelected) {
-     /*   String tag = dialog.getTag();
-        if(tag.equals("sort_meals_tag")) {
-            Fragment frag =getSupportFragmentManager().findFragmentByTag("mealFrag");
-            if(frag instanceof MealFragment) {
-                (MealFragment)frag.sort(idSelected);
-            }*/
+     //  String tag = dialog.getTag();
+
         MealFragment fragment = (MealFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_container);
         fragment.sort(idSelected);
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        startMealsDetailsActivity(RestaurantContent.ITEMS.get(0));
     }
 }

@@ -94,6 +94,12 @@ public class RestaurantsListFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+        getActivity().setTitle(R.string.restaurants_title);
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

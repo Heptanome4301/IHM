@@ -3,10 +3,12 @@ package com.example.andri.bonappetit;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
@@ -43,7 +45,7 @@ public class MealDetailsActivity extends AppCompatActivity {
         toolbarLayout.setTitle(intent.getCharSequenceExtra("title"));
 
         TextView seats = (TextView)findViewById(R.id.seats);
-        seats.setText(intent.getIntExtra("totalSeats", 1)-intent.getIntExtra("seatsTaken", 0)+" places disponibles");
+        seats.setText(intent.getIntExtra("totalSeats", 1)-intent.getIntExtra("seatsTaken", 0)+" places disponibles sur "+intent.getIntExtra("totalSeats", 1)+" au total");
         TextView date = (TextView)findViewById(R.id.date);
         date.setText(intent.getCharSequenceExtra("date"));
         TextView location = (TextView)findViewById(R.id.location);
@@ -53,16 +55,15 @@ public class MealDetailsActivity extends AppCompatActivity {
 
         TextView price = (TextView)findViewById(R.id.price);
         DecimalFormat df = new DecimalFormat("#.#");
-        price.setText(df.format(intent.getFloatExtra("price",1))+"€");
+        price.setText(df.format(intent.getFloatExtra("price", 1)) + "€");
 
 
         ImageView image = (ImageView)findViewById(R.id.backdrop);
-        image.setImageResource(intent.getIntExtra("idImg",-1));
+       // image.setImageResource(intent.getIntExtra("idImg", -1));
+     //   Drawable d = getDrawable(intent.getIntExtra("idImg", -1));
+        Drawable d = ContextCompat.getDrawable(getApplicationContext(), intent.getIntExtra("idImg", -1));
+        image.setImageDrawable(d);
         Bitmap myBitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
-    /*    if (myBitmap != null && !myBitmap.isRecycled()) {
-            Palette palette = Palette.generate(myBitmap);
-
-        }*/
 
         Palette.from(myBitmap).generate(new Palette.PaletteAsyncListener() {
             public void onGenerated(Palette p) {

@@ -1,6 +1,9 @@
 package com.example.andri.bonappetit;
 
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +26,7 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
 
     private final List<RestaurantItem> mValues;
     private final OnListFragmentInteractionListener mListener;
+    private Context context;
 
     public MyMealRecyclerViewAdapter(List<RestaurantItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
@@ -31,31 +35,35 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        context = parent.getContext();
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_meal, parent, false);
         return new ViewHolder(view);
+
+
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-       // holder.mIdView.setText(mValues.get(position).id);
+        // holder.mIdView.setText(mValues.get(position).id);
         holder.mTitleView.setText(mValues.get(position).title);
         holder.mSnippetView.setText(mValues.get(position).snippet);
         holder.mDateView.setText(mValues.get(position).date);
         holder.mLocationView.setText(mValues.get(position).location);
-        DecimalFormat df= new DecimalFormat("#.#");
-        String rating = df.format(mValues.get(position).rating)+"/5";
+        DecimalFormat df = new DecimalFormat("#.#");
+        String rating = df.format(mValues.get(position).rating) + "/5";
         holder.mRatingView.setText(rating);
-        String seats = "("+mValues.get(position).seatsTaken+"/"+mValues.get(position).totalSeats+")";
+        String seats = "(" + mValues.get(position).seatsTaken + "/" + mValues.get(position).totalSeats + ")";
         holder.mSeatsView.setText(seats);
-        df= new DecimalFormat("#.#");
-        String price = df.format(mValues.get(position).price)+"€";
+        df = new DecimalFormat("#.#");
+        String price = df.format(mValues.get(position).price) + "€";
         holder.mPriceView.setText(price);
 
-
-        holder.mImageView.setImageResource(mValues.get(position).idImg);
-
+        if (context != null) {
+            Drawable d = ContextCompat.getDrawable(context, mValues.get(position).idImg);
+            holder.mImageView.setImageDrawable(d);
+        }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +84,7 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-      //  public final TextView mIdView;
+        //  public final TextView mIdView;
         public final TextView mTitleView;
         public final TextView mSnippetView;
         public final TextView mDateView;

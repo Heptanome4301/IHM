@@ -12,7 +12,7 @@
     <string name="title_activity_form">Nouveau repas</string>
     <string name="meal_name">ex: "Couscous royal chez Patrick"</string>
     <string name="button_validate">Valider</string>
-    <string name="meal_description"></string>
+    <string name="meal_description_hint">ex: "Un repas qu'il est bien"</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -142,6 +142,11 @@
     <string name="title_activity_maps_activity_mdr">Map</string>
     <string name="sort_dialog_title">Trier suivant</string>
     <string name="menu_search">Rechercher</string>
+    <string name="location_hint">ex: \"C123\"</string>
+    <string name="button_map_link">Voir sur la carte</string>
+    <string name="meals_title">Repas utilisateurs</string>
+    <string name="restaurants_title">Restaurants</string>
+    <string name="map_title">Carte</string>
 
     <string-array name="sort_array">
         <item><string name="price_item">Prix</string></item>

@@ -63,6 +63,12 @@ public class MealFragment extends Fragment   {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+        getActivity().setTitle(R.string.meals_title);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_meal_list, container, false);
@@ -109,8 +115,6 @@ public class MealFragment extends Fragment   {
             case R.id.menu_sort :
                 SortMealFragmentDialog dialog = new SortMealFragmentDialog();
                 dialog.show(getFragmentManager(), "sort_meals_tag");
-
-
                 return true;
         }
 

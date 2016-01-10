@@ -18,20 +18,11 @@
             android:layout_marginTop="25dp"
             android:layout_centerHorizontal="true"
             android:id="@+id/rating_bar"
+            android:isIndicator="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:layout_margin="@dimen/text_margin"
-            android:id="@+id/price"
-            android:drawablePadding="3dp"
-            android:drawableLeft="@mipmap/ic_local_offer_black_18dp"
-            android:layout_below="@+id/rating_bar"
-            android:layout_alignParentLeft="true" />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,8 +34,7 @@
             android:drawablePadding="3dp"
             android:drawableLeft="@mipmap/ic_group_black_24dp"
             android:layout_below="@+id/rating_bar"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"/>
+            android:layout_centerHorizontal="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,8 +45,21 @@
             android:drawablePadding="3dp"
             android:text="Date inconnue"
             android:drawableLeft="@mipmap/ic_schedule_black_24dp"
+            android:layout_below="@+id/seats" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:layout_margin="@dimen/text_margin"
+            android:id="@+id/price"
+            android:drawablePadding="3dp"
+            android:drawableLeft="@mipmap/ic_local_offer_black_18dp"
             android:layout_below="@+id/seats"
-             />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,12 +67,10 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_margin="@dimen/text_margin"
             android:id="@+id/location"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:text="Lieu inconnu"
             android:drawablePadding="3dp"
             android:drawableLeft="@mipmap/ic_place_black_24dp"
-            android:layout_below="@+id/seats"
+            android:layout_below="@+id/price"
             />
 
         <TextView
@@ -80,9 +81,15 @@
             android:id="@+id/description"
             android:layout_below="@+id/location" />
 
-
-
-
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_map_link"
+            android:id="@+id/button_map_link"
+            android:layout_below="@+id/date"
+            android:layout_toRightOf="@+id/location"
+            android:layout_toEndOf="@+id/location" />
 
 
     </RelativeLayout>
