@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements
         GoogleMap.OnInfoWindowClickListener {
 
     private MealFragment mealFragment;
-    private RestaurantsListFragment dummyFragment;
+    private RestaurantsListFragment restaurantsFragment;
     private MapFragment mapFragment;
     public FloatingActionButton fab;
 
@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity implements
             }
 
             RestaurantsListFragment fragment = new RestaurantsListFragment();
-            dummyFragment = fragment;
+            restaurantsFragment = fragment;
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            transaction.add(R.id.fragment_container, dummyFragment);
+            transaction.add(R.id.fragment_container, restaurantsFragment);
             transaction.commit();
 
 
@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements
             mapFragment.getMapAsync(this);
 
         } else if (id == R.id.nav_user_meal) {
+            setTitle(R.string.meals_title);
             if (mealFragment == null)
                 mealFragment = new MealFragment();
 
@@ -165,17 +166,18 @@ public class MainActivity extends AppCompatActivity implements
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_resto) {
-            if (dummyFragment == null)
-                dummyFragment = new RestaurantsListFragment();
+            if (restaurantsFragment == null)
+                restaurantsFragment = new RestaurantsListFragment();
 
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            transaction.replace(R.id.fragment_container, dummyFragment);
+            transaction.replace(R.id.fragment_container, restaurantsFragment);
             transaction.addToBackStack(null);
             transaction.commit();
             if(mealFragment!=null) {
                 getSupportFragmentManager().beginTransaction().remove(mealFragment).commit();
             }
+            setTitle(R.string.restaurants_title);
 
             fab.setVisibility(View.GONE);
         }
