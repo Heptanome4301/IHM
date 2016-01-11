@@ -46,9 +46,36 @@ public class RestaurantContent {
     }
 
     private static RestaurantItem createDummyItem(int position) {
-        return new RestaurantItem(String.valueOf(position), "Repas " + position, BLABLA
-                ,
-                "Localisation " + position, ((int)Math.floor(Math.random() * 30)+" février à 12h"), (float) Math.random() * 5, (int) Math.floor(Math.random() * 5), 5, (float) Math.random() * 9 + 1);
+        int day = (int)Math.floor(Math.random()*30+1);
+        float rating= (float) Math.random() * 5;
+        int seatsTaken = 1+(int) Math.floor(Math.random()*4);
+        int totalSeats = 5;
+        int distance = (int)Math.floor(Math.random()*400+100);
+        float price = (float) Math.random() * 9 + 1;
+        String user = "Utilisateur "+position;
+        String title = "Repas "+position;
+        String location = "Localisation "+position;
+        String date = day+" février à 12h";
+        String description =BLABLA;
+
+        int idImg=-1;
+        switch ((int) Math.floor(Math.random()*4)) {
+            case 0:
+                idImg = R.drawable.tartiflette;
+                break;
+            case 1:
+                idImg = R.drawable.repas2;
+                break;
+            case 2:
+                idImg = R.drawable.repas3;
+                break;
+            case 3:
+                idImg = R.drawable.repas4;
+                break;
+        }
+
+        return new RestaurantItem(String.valueOf(position),title,description,user,location,date,day,rating,seatsTaken,totalSeats,price,distance,idImg);
+
     }
 
     public static void sortByRating() {
@@ -86,6 +113,30 @@ public class RestaurantContent {
         });
     }
 
+    public static void sortByDate() {
+        Collections.sort(ITEMS, new Comparator<RestaurantItem>() {
+            @Override
+            public int compare(RestaurantItem lhs, RestaurantItem rhs) {
+                if (lhs.day > rhs.day)
+                    return 1;
+                else
+                    return -1;
+            }
+        });
+    }
+
+    public static void sortByDistance() {
+        Collections.sort(ITEMS, new Comparator<RestaurantItem>() {
+            @Override
+            public int compare(RestaurantItem lhs, RestaurantItem rhs) {
+                if (lhs.distance > rhs.distance)
+                    return 1;
+                else
+                    return -1;
+            }
+        });
+    }
+
 
     /**
      * A dummy item representing a piece of content.
@@ -93,6 +144,7 @@ public class RestaurantContent {
     public static class RestaurantItem {
         public final String id;
         public int idImg;
+        public final int day;
         public final String description;
         public final String snippet;
         public final String location;
@@ -102,32 +154,24 @@ public class RestaurantContent {
         public final float price;
         public final int seatsTaken;
         public final int totalSeats;
+        public final String user;
+        public final int distance;
 
-        public RestaurantItem(String id, String title, String description, String location, String date, float rating, int seatsTaken, int totalSeats, float price) {
+        public RestaurantItem(String id, String title, String description,String user, String location, String date,int day, float rating, int seatsTaken, int totalSeats, float price,int distance,int idImg) {
             this.id = id;
             this.title = title;
             this.description = description;
             this.location = location;
             this.date = date;
+            this.day = day;
             this.snippet = description.substring(0);
             this.rating = rating;
             this.seatsTaken = seatsTaken;
             this.totalSeats = totalSeats;
             this.price = price;
-            switch ((int) Math.floor(Math.random()*4)) {
-                case 0:
-                    idImg = R.drawable.tartiflette;
-                    break;
-                case 1:
-                    idImg = R.drawable.repas2;
-                    break;
-                case 2:
-                    idImg = R.drawable.repas3;
-                    break;
-                case 3:
-                    idImg = R.drawable.repas4;
-                    break;
-            }
+            this.user=user;
+            this.distance=distance;
+            this.idImg=idImg;
         }
 
         @Override

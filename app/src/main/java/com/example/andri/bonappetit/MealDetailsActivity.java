@@ -45,13 +45,17 @@ public class MealDetailsActivity extends AppCompatActivity {
         toolbarLayout.setTitle(intent.getCharSequenceExtra("title"));
 
         TextView seats = (TextView)findViewById(R.id.seats);
-        seats.setText(intent.getIntExtra("totalSeats", 1)-intent.getIntExtra("seatsTaken", 0)+" places disponibles sur "+intent.getIntExtra("totalSeats", 1)+" au total");
+        seats.setText(intent.getIntExtra("totalSeats", 1) - intent.getIntExtra("seatsTaken", 0) + " places disponibles sur " + intent.getIntExtra("totalSeats", 1) + " au total");
         TextView date = (TextView)findViewById(R.id.date);
         date.setText(intent.getCharSequenceExtra("date"));
         TextView location = (TextView)findViewById(R.id.location);
         location.setText(intent.getCharSequenceExtra("location"));
         TextView description = (TextView)findViewById(R.id.description);
         description.setText(intent.getCharSequenceExtra("snippet"));
+        TextView user = (TextView)findViewById(R.id.user);
+        user.setText("Proposé par "+intent.getCharSequenceExtra("user"));
+        TextView distance = (TextView)findViewById(R.id.distance);
+        distance.setText("à "+intent.getIntExtra("distance",0)+"m d'ici");
 
         TextView price = (TextView)findViewById(R.id.price);
         DecimalFormat df = new DecimalFormat("#.#");

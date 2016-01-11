@@ -142,7 +142,7 @@ public class MealFragment extends Fragment   {
                 RestaurantContent.sortByPrice();
                 break;
             case 1 : //date
-                // TODO
+                RestaurantContent.sortByDate();
                 break;
             case 2 : //name
                 RestaurantContent.sortByTitle();
@@ -151,7 +151,7 @@ public class MealFragment extends Fragment   {
                 RestaurantContent.sortByRating();
                 break;
             case 4 : //distance
-                // TODO
+                RestaurantContent.sortByDistance();
                 break;
         }
 

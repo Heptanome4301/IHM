@@ -155,6 +155,7 @@
         <item><string name="rating_item">Note</string></item>
         <item><string name="distance_item">Distance</string></item>
     </string-array>
+    <string name="title_activity_restaurant_details">RestaurantDetails</string>
 
 
 </resources>

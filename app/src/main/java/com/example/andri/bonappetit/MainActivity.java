@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setCheckedItem(R.id.nav_resto);
         navigationView.setNavigationItemSelectedListener(this);
 
     }
@@ -201,6 +202,8 @@ public class MainActivity extends AppCompatActivity implements
         intent.putExtra("totalSeats",item.totalSeats);
         intent.putExtra("price",item.price);
         intent.putExtra("idImg",item.idImg);
+        intent.putExtra("user",item.user);
+        intent.putExtra("distance",item.distance);
         startActivity(intent);
     }
 

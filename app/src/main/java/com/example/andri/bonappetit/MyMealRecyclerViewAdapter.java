@@ -50,7 +50,7 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
         holder.mTitleView.setText(mValues.get(position).title);
         holder.mSnippetView.setText(mValues.get(position).snippet);
         holder.mDateView.setText(mValues.get(position).date);
-        holder.mLocationView.setText(mValues.get(position).location);
+        holder.mDistanceView.setText(mValues.get(position).distance+"m");
         DecimalFormat df = new DecimalFormat("#.#");
         String rating = df.format(mValues.get(position).rating) + "/5";
         holder.mRatingView.setText(rating);
@@ -88,7 +88,7 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
         public final TextView mTitleView;
         public final TextView mSnippetView;
         public final TextView mDateView;
-        public final TextView mLocationView;
+        public final TextView mDistanceView;
         public final TextView mRatingView;
         public final TextView mSeatsView;
         public final TextView mPriceView;
@@ -100,7 +100,7 @@ public class MyMealRecyclerViewAdapter extends RecyclerView.Adapter<MyMealRecycl
             mView = view;
             mTitleView = (TextView) view.findViewById(R.id.title);
             mDateView = (TextView) view.findViewById(R.id.date);
-            mLocationView = (TextView) view.findViewById(R.id.location);
+            mDistanceView = (TextView) view.findViewById(R.id.location);
             mRatingView = (TextView) view.findViewById(R.id.rating);
             mSnippetView = (TextView) view.findViewById(R.id.snippet);
             mSeatsView = (TextView) view.findViewById(R.id.seats);
