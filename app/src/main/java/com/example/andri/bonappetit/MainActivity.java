@@ -256,4 +256,9 @@ public class MainActivity extends AppCompatActivity implements
     public void onInfoWindowClick(Marker marker) {
         startMealsDetailsActivity(RestaurantContent.ITEMS.get(0));
     }
+
+    public void openTile(View view) {
+        Intent intent = new Intent(this,RestaurantDetails.class);
+        startActivity(intent);
+    }
 }

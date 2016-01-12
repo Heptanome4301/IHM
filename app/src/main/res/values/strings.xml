@@ -157,5 +157,18 @@
     </string-array>
     <string name="title_activity_restaurant_details">RestaurantDetails</string>
 
+    <string name="cp_hours">Ouvert - 11h30 - 13h30</string>
+    <string name="cp_wait">5 min d\'attente</string>
+    <string name="cp_starter">Salade Verte</string>
+    <string name="cp_maincourse">Tartiflette végétarienne</string>
+    <string name="cp_dessert">Yahourt</string>
+    <string name="cp_alt1">Tarte aux poires</string>
+    <string name="cp_alt2">Pizza pêcheur</string>
+
+    <string name="menu">Menu du jour :</string>
+    <string name="other">Autres plats :</string>
+    <string name="photos">Photos :</string>
+
+
 
 </resources>

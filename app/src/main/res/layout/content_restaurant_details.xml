@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="2dp"
+    tools:context="com.h4301.bonappetif.Restaurant"
+    android:nestedScrollingEnabled="false">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="45sp"
+        android:text="@string/cp_name"
+        android:id="@+id/cp_name"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="0dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/cp_hours"
+        android:id="@+id/cp_hours"
+        android:layout_below="@+id/cp_name"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/cp_wait"
+        android:id="@+id/cp_wait"
+        android:layout_below="@+id/cp_hours"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/cp_distance"
+        android:id="@+id/cp_distance"
+        android:layout_below="@+id/cp_wait"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/cp_price"
+        android:id="@+id/cp_price"
+        android:layout_below="@+id/cp_distance"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="3dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/separator"
+        android:layout_below="@id/cp_price"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/darker_gray"
+        android:paddingTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/menu"
+        android:id="@+id/menu"
+        android:layout_below="@+id/separator"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="3dp"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/cp_starter"
+        android:id="@+id/cp_starter"
+        android:layout_below="@+id/menu"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/cp_maincourse"
+        android:id="@+id/cp_main"
+        android:layout_below="@+id/cp_starter"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/cp_dessert"
+        android:layout_below="@+id/cp_main"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/cp_dessert"
+        android:paddingTop="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/other"
+        android:id="@+id/other_meal"
+        android:layout_below="@+id/cp_dessert"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="5dp"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/cp_alt1"
+        android:id="@+id/cp_alt1"
+        android:layout_below="@+id/other_meal"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/cp_alt2"
+        android:id="@+id/cp_alt2"
+        android:layout_below="@+id/cp_alt1"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/photos"
+        android:id="@+id/photos"
+        android:layout_below="@+id/cp_alt2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="3dp"
+        android:layout_marginLeft="16dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clock"
+        android:layout_alignBottom="@+id/cp_wait"
+        android:src="@mipmap/ic_schedule_black_24dp"
+        android:layout_alignTop="@+id/cp_wait"
+        android:layout_alignRight="@+id/photos"
+        android:layout_alignEnd="@+id/photos"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="1dp"
+        android:layout_marginLeft="16dp" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pin"
+        android:layout_alignBottom="@+id/cp_distance"
+        android:layout_alignTop="@+id/cp_distance"
+        android:src="@mipmap/ic_place_black_24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/clock"
+        android:layout_alignEnd="@+id/clock"
+        android:paddingTop="1dp"
+        android:layout_marginLeft="16dp" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/euro"
+        android:layout_alignBottom="@+id/cp_price"
+        android:layout_alignTop="@+id/cp_price"
+        android:src="@mipmap/ic_attach_money_black_24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/pin"
+        android:layout_alignEnd="@+id/pin"
+        android:paddingTop="1dp"
+        android:layout_marginLeft="16dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/photos"
+        android:gravity="bottom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="3"
+        android:paddingTop="3dp"
+        android:id="@+id/photo_layout"
+        android:nestedScrollingEnabled="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/salade"
+            android:src="@drawable/salade"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tartiflette"
+            android:src="@drawable/tartiflette"
+            android:layout_weight="1"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/yahourt"
+            android:layout_weight="1"
+            />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

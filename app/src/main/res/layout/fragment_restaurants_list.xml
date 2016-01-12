@@ -32,6 +32,7 @@
                 android:background="@color/tile_bg_dark"
                 android:layout_marginRight="5dp"
                 android:id="@+id/cp_tile"
+                android:onClick="openTile"
                 android:clickable="true">
 
                 <TextView
